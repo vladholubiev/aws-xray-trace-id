@@ -1,11 +1,14 @@
 'use strict';
 
-module.exports = (input, opts) => {
-  if (typeof input !== 'string') {
-    throw new TypeError(`Expected a string, got ${typeof input}`);
-  }
+const XRAY_ENV_NAME = '_X_AMZN_TRACE_ID';
+const TRACE_ID_REGEX = /^Root=(.+);Parent=(.+);/;
 
-  opts = opts || {};
+module.exports = () => {
+  const tracingInfo = process.env[XRAY_ENV_NAME] || '';
+  const matches = tracingInfo.match(TRACE_ID_REGEX) || ['', '', ''];
 
-  return input + ' & ' + (opts.postfix || 'rainbows');
+  return {
+    root: matches[1],
+    parent: matches[2]
+  };
 };

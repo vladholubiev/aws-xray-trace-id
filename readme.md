@@ -13,7 +13,14 @@ $ yarn add aws-xray-trace-id
 ```js
 const getTraceId = require('aws-xray-trace-id');
 
-getTraceId(); // => '1-5a63c88d-176c0efa66455ccd4847370c'
+getTraceId();
+
+/*
+{
+  root: '1-5a63c944-524af1e83d023d4d222d8a3b',
+  parent: '533a3da646ba1902'
+}
+ */
 ```
 
 ## License
