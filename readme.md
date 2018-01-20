@@ -1,4 +1,4 @@
-# aws-xray-trace-id [![CircleCI](https://img.shields.io/circleci/project/github/vladgolubev/aws-xray-trace-id.svg)](https://circleci.com/gh/vladgolubev/aws-xray-trace-id)
+# aws-xray-trace-id [![CircleCI](https://img.shields.io/circleci/project/github/vladgolubev/aws-xray-trace-id.svg)](https://circleci.com/gh/vladgolubev/aws-xray-trace-id) ![](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)
 
 > Get AWS X-Ray Trace Id from Lambda Environment
 
@@ -13,7 +13,7 @@ $ yarn add aws-xray-trace-id
 ```js
 const getTraceId = require('aws-xray-trace-id');
 
-getTraceId();
+const {root, parent} = getTraceId();
 
 /*
 {
